@@ -1,0 +1,536 @@
+[{
+  "_id": {
+    "$oid": "67068fadfb95cc571ac663c8"
+  },
+  "username": null,
+  "chatid": 501026755,
+  "FirstName": "Philipp",
+  "LastName": "Tumbaretkin",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "67068e14fb95cc571ac663c3"
+  },
+  "username": "tr_denis",
+  "chatid": 548184657,
+  "FirstName": "Denis",
+  "LastName": "Trushkin",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 100000,
+  "bat_order": 35000,
+  "usdt_order": 1000,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "66feba67ac89ce92f81405ea"
+  },
+  "username": "Popova_Anastasiia_15",
+  "chatid": 641238448,
+  "FirstName": "Анастасия",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 30000,
+  "bat_order": 22333,
+  "usdt_order": 6000,
+  "latitude": 12.922127,
+  "longitude": 100.9087
+},
+{
+  "_id": {
+    "$oid": "670bd97f515c5caf6a13faec"
+  },
+  "username": "vkpopov",
+  "chatid": 524510525,
+  "FirstName": "Vladimir",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 50000,
+  "bat_order": 0,
+  "usdt_order": 500,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "670d377261538d91ebfba246"
+  },
+  "username": "Misha_Thai_Baht",
+  "chatid": {
+    "$numberLong": "6099357140"
+  },
+  "FirstName": "Миша Паттайя",
+  "LastName": null,
+  "adm": 1,
+  "price": 0,
+  "banned": false,
+  "rub_order": 800000,
+  "bat_order": 15000,
+  "usdt_order": 1000,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "670d390761538d91ebfba24a"
+  },
+  "username": "klouner",
+  "chatid": 713654,
+  "FirstName": "Maxim",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 100000,
+  "bat_order": 44556,
+  "usdt_order": 1000,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "670d391b61538d91ebfba24b"
+  },
+  "username": "frelucky",
+  "chatid": 329627109,
+  "FirstName": "Artem",
+  "LastName": "S",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 5000,
+  "usdt_order": 500,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "670dd8263d45bd4a4560f2e9"
+  },
+  "username": "Ulyanessa",
+  "chatid": 204485448,
+  "FirstName": "Ulyana",
+  "LastName": "Lazareva",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 100000,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "670f602d3d45bd4a4560f306"
+  },
+  "username": "smithjan21",
+  "chatid": 542643041,
+  "FirstName": "Зайтун",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 15000,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "670f6c4f3d45bd4a4560f30a"
+  },
+  "username": "Peisdes",
+  "chatid": {
+    "$numberLong": "5868321923"
+  },
+  "FirstName": "Андрей",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 100000,
+  "bat_order": 100000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710cc2ebb217e603b97de67"
+  },
+  "username": "maxim_pattaya",
+  "chatid": {
+    "$numberLong": "6229633473"
+  },
+  "FirstName": "Максим",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710cd14bb217e603b97de68"
+  },
+  "username": "iqos_thai",
+  "chatid": {
+    "$numberLong": "6116434452"
+  },
+  "FirstName": "iQos-thai",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710cd42bb217e603b97de69"
+  },
+  "username": "depil_pattaya",
+  "chatid": {
+    "$numberLong": "6335399632"
+  },
+  "FirstName": "Анастасия",
+  "LastName": "Депиляция Паттайя",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710cdfdbb217e603b97de6a"
+  },
+  "username": "pro_ex_th",
+  "chatid": {
+    "$numberLong": "7452225889"
+  },
+  "FirstName": "PRO exchange",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710cf25bb217e603b97de6b"
+  },
+  "username": null,
+  "chatid": {
+    "$numberLong": "5176406871"
+  },
+  "FirstName": "Анастасия",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 10000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710d8f1bb217e603b97de6d"
+  },
+  "username": "Svetforyou",
+  "chatid": 1956311656,
+  "FirstName": "Svetlana",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 20000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710f097bb217e603b97de72"
+  },
+  "username": "logicnast",
+  "chatid": 487604987,
+  "FirstName": "Анастасия",
+  "LastName": "Плискина",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 75000,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6710f1e5bb217e603b97de74"
+  },
+  "username": "Rebay81",
+  "chatid": 177397326,
+  "FirstName": "Евгений",
+  "LastName": "Улиткин",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6712082abb217e603b97de7a"
+  },
+  "username": "L_illy_A",
+  "chatid": 123763144,
+  "FirstName": "ЛилиА",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "671222a4bb217e603b97de7c"
+  },
+  "username": "GerVs1",
+  "chatid": {
+    "$numberLong": "5868731916"
+  },
+  "FirstName": "Miracle",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 50000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "67124282bb217e603b97de7f"
+  },
+  "username": "uzarera",
+  "chatid": 479762768,
+  "FirstName": "Greet",
+  "LastName": "Mommy",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 203,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "671244d620e60be665c8fdc6"
+  },
+  "username": "SpiridonovaIr",
+  "chatid": {
+    "$numberLong": "7494260010"
+  },
+  "FirstName": "Irina",
+  "LastName": "Spiridonova",
+  "adm": 1,
+  "price": 0,
+  "banned": false,
+  "rub_order": 50000,
+  "bat_order": 20000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "67125e4220e60be665c8fdca"
+  },
+  "username": "sega_megaa",
+  "chatid": {
+    "$numberLong": "5038993829"
+  },
+  "FirstName": "👽Sega_Mega👽",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 0,
+  "usdt_order": 1000,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "671271a620e60be665c8fdce"
+  },
+  "username": "Lidiya_1228",
+  "chatid": 1319906409,
+  "FirstName": "Лидия",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 50000,
+  "bat_order": 10000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "67137aba8d5e586e6c978f4b"
+  },
+  "username": "AlX_CASH",
+  "chatid": {
+    "$numberLong": "7181834323"
+  },
+  "FirstName": "AlX",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 10000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6713db2d8d5e586e6c978f4f"
+  },
+  "username": "MaxTelpish",
+  "chatid": 671069336,
+  "FirstName": "Макс",
+  "LastName": "Тельпа",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 20000,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "67141f4f8d5e586e6c978f53"
+  },
+  "username": "belozerovda",
+  "chatid": 43190604,
+  "FirstName": "Denis",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 20000,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "671640d38d5e586e6c978f65"
+  },
+  "username": "Gid_pattaya",
+  "chatid": {
+    "$numberLong": "6904898465"
+  },
+  "FirstName": "Gid",
+  "LastName": "Pattaya🏝️",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 100000,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6717492447008c0e6c931307"
+  },
+  "username": "wowgrand",
+  "chatid": {
+    "$numberLong": "5126254097"
+  },
+  "FirstName": "Павел Анатольевич",
+  "LastName": null,
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 0,
+  "bat_order": 17500,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+},
+{
+  "_id": {
+    "$oid": "6717a24447008c0e6c931311"
+  },
+  "username": "vkusniysup4",
+  "chatid": 1096198295,
+  "FirstName": "Nikita",
+  "LastName": "Degtev",
+  "adm": 0,
+  "price": 0,
+  "banned": false,
+  "rub_order": 50000,
+  "bat_order": 0,
+  "usdt_order": 0,
+  "latitude": 0,
+  "longitude": 0
+}]

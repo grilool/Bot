@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "66db4f23202a8dd50aa8573f"
+  },
+  "bat_min": 5000,
+  "rub_min": 16100,
+  "usdt_min": 170,
+  "id_id": 1
+}]

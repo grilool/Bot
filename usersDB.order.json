@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "66dc4ff33fdc7c30499c7331"
+  },
+  "curse_rub": "2.954",
+  "curse_bat": "33.528",
+  "curse_usdt": "98.92",
+  "curse_bitazza": "33.486",
+  "nakrutka": "1.03",
+  "curseid": 1,
+  "shag": "0.0001",
+  "nakrutka_10": "1.06",
+  "nakrutka_200": "1.01"
+},
+{
+  "_id": {
+    "$oid": "6706a64b836e213dbefa1f5b"
+  },
+  "orderid": "091020241",
+  "bat": 7000,
+  "fiat": "bat_rub",
+  "curse": 3.119,
+  "rub": 21833,
+  "date": "09102024",
+  "active": true,
+  "chatid": 524510525
+},
+{
+  "_id": {
+    "$oid": "6706c113836e213dbefa1f5e"
+  },
+  "orderid": "091020242",
+  "bat": 10000,
+  "fiat": "bat_rub",
+  "curse": 3.026,
+  "rub": 30260,
+  "date": "09102024",
+  "active": true,
+  "chatid": {
+    "$numberLong": "7494260010"
+  }
+},
+{
+  "_id": {
+    "$oid": "6706c67bfd40085d83f07083"
+  },
+  "orderid": "091020243",
+  "bat": 5000,
+  "fiat": "bat_rub",
+  "curse": 3.1,
+  "rub": 15500,
+  "date": "09102024",
+  "active": true,
+  "chatid": {
+    "$numberLong": "7494260010"
+  }
+},
+{
+  "_id": {
+    "$oid": "6706c688fd40085d83f07085"
+  },
+  "orderid": "091020244",
+  "bat": 10000,
+  "fiat": "bat_rub",
+  "curse": 3.013,
+  "rub": 30130,
+  "date": "09102024",
+  "active": true,
+  "chatid": {
+    "$numberLong": "7494260010"
+  },
+  "location": false,
+  "latitude": 54.739307,
+  "longitude": 56.00129
+},
+{
+  "_id": {
+    "$oid": "6706f757fd40085d83f0708c"
+  },
+  "orderid": "101020241",
+  "bat": 10000,
+  "fiat": "bat_rub",
+  "curse": 3.039,
+  "rub": 30390,
+  "date": "10102024",
+  "active": true,
+  "chatid": {
+    "$numberLong": "7494260010"
+  },
+  "location": false,
+  "latitude": 54.739376,
+  "longitude": 56.001313
+}]
