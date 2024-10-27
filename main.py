@@ -120,7 +120,7 @@ async def start(message: types.Message, state: FSMContext):
         result = users.find_one({'chatid': message.chat.id})
         res = users.find_one({'chatid': id})
         if message.chat.id == id:
-            await message.answer('Вы не можете регестирироваться по своей реферальной ссылке')
+            await message.answer('Вы не можете регистирироваться по своей реферальной ссылке')
         else:
             if result == None:
                 useradd = {
@@ -149,8 +149,9 @@ async def start(message: types.Message, state: FSMContext):
                 builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
                 builder.adjust(1,1,1,1,1)
                 await message.bot.send_message(chat_id = message.chat.id, text = text, reply_markup = builder.as_markup(one_time_keyboard=True,resize_keyboard=True), parse_mode="HTML")
+                await message.bot.send_message(chat_id = id, text = f"По Вашей реферальной ссылке зарегистрировался человек. \n@{message.from_user.username}")
             elif result != None and result['ref'] != 0:
-                await message.answer('Вы уже были зарегестрированы по реферальной системе.')
+                await message.answer('Вы уже были зарегистрированы по реферальной системе.')
             elif result != None and result['ref'] == 0:
                 text = text_menu
                 if result['banned'] == True:
@@ -169,6 +170,7 @@ async def start(message: types.Message, state: FSMContext):
                     builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
                     builder.adjust(1,1,1,1,1)
                     await message.bot.send_message(chat_id = message.chat.id, text = text, reply_markup = builder.as_markup(one_time_keyboard=True,resize_keyboard=True), parse_mode="HTML")
+                    await message.bot.send_message(chat_id = id, text = f"По Вашей реферальной ссылке зарегистрировался человек. \n@{message.from_user.username}")
 
 @dp.message(Command('profile'))
 async def profile(message: Message):
@@ -188,7 +190,7 @@ async def profile(message: Message):
         builder = InlineKeyboardBuilder()
         builder.button(text = 'Главное меню', callback_data = 'menu')
         text = f"Ваш ID <code>{message.chat.id}</code>"\
-                f"\nБаланс: {result['price']}" \
+                f"\nБаланс: {result['price']} бат" \
                 f"\nКол-во приглашенных пользователей: {len(k)}" \
                 f"\nРеферальная ссылка:" \
                 f"\n{link}"
