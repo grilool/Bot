@@ -95,6 +95,7 @@ async def start(message: types.Message, state: FSMContext):
             builder = InlineKeyboardBuilder()
             builder.button(text = 'Расчитать', callback_data = 'search')
             builder.button(text = 'Способы получения', callback_data = 'delivery')
+            builder.button(text = 'Профиль', callback_data = 'profile')
             builder.button(text = 'Общая информация', callback_data = 'info')
             builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
             builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
@@ -110,6 +111,7 @@ async def start(message: types.Message, state: FSMContext):
                 builder = InlineKeyboardBuilder()
                 builder.button(text = 'Расчитать', callback_data = 'search')
                 builder.button(text = 'Способы получения', callback_data = 'delivery')
+                builder.button(text = 'Профиль', callback_data = 'profile')
                 builder.button(text = 'Общая информация', callback_data = 'info')
                 builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
                 builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
@@ -144,6 +146,7 @@ async def start(message: types.Message, state: FSMContext):
                 builder = InlineKeyboardBuilder()
                 builder.button(text = 'Расчитать', callback_data = 'search')
                 builder.button(text = 'Способы получения', callback_data = 'delivery')
+                builder.button(text = 'Профиль', callback_data = 'profile')
                 builder.button(text = 'Общая информация', callback_data = 'info')
                 builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
                 builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
@@ -165,6 +168,7 @@ async def start(message: types.Message, state: FSMContext):
                     builder = InlineKeyboardBuilder()
                     builder.button(text = 'Расчитать', callback_data = 'search')
                     builder.button(text = 'Способы получения', callback_data = 'delivery')
+                    builder.button(text = 'Профиль', callback_data = 'profile')
                     builder.button(text = 'Общая информация', callback_data = 'info')
                     builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
                     builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
@@ -174,7 +178,6 @@ async def start(message: types.Message, state: FSMContext):
 
 @dp.message(Command('profile'))
 async def profile(message: Message):
-    result = users.find_one({'chatid': message.chat.id})
     result = users.find_one({'chatid': message.chat.id})
     if result['banned'] == True:
         builder = InlineKeyboardBuilder()
@@ -189,12 +192,45 @@ async def profile(message: Message):
             k.append(res)
         builder = InlineKeyboardBuilder()
         builder.button(text = 'Главное меню', callback_data = 'menu')
+        builder.button(text = 'Расчитать', callback_data = 'search')
+        builder.button(text = 'Общая информация', callback_data = 'info')
+        builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
+        builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
         text = f"Ваш ID <code>{message.chat.id}</code>"\
                 f"\nБаланс: {result['price']} бат" \
                 f"\nКол-во приглашенных пользователей: {len(k)}" \
-                f"\nРеферальная ссылка:" \
-                f"\n{link}"
+                f"\nРеферальная ссылка:\n" \
+                f"<code>{link}</code>"
         await message.bot.send_message(chat_id = message.chat.id, text = text, reply_markup = builder.as_markup())
+
+
+@dp.callback_query(F.data == 'profile')
+async def but_profile(call: types.CallbackQuery):
+    result = users.find_one({'chatid': call.message.chat.id})
+    if result['banned'] == True:
+        builder = InlineKeyboardBuilder()
+        builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
+        await call.bot.send_message(chat_id = call.message.chat.id, text = 'К сожалению Ваш аккаунт заблокирован',reply_markup = builder.as_markup())
+    else:
+        bot_username = await call.bot.get_me()
+        bot_username = bot_username.username
+        link = f"http://t.me/{bot_username}?start=ref{call.message.chat.id}"
+        k = []
+        for res in users.find({'ref': call.message.chat.id}):
+            k.append(res)
+        builder = InlineKeyboardBuilder()
+        builder.button(text = 'Главное меню', callback_data = 'menu')
+        builder.button(text = 'Расчитать', callback_data = 'search')
+        builder.button(text = 'Общая информация', callback_data = 'info')
+        builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
+        builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
+        builder.adjust(1,1,1,1,1,1)
+        text = f"Ваш ID <code>{call.message.chat.id}</code>"\
+                f"\nБаланс: {result['price']} бат" \
+                f"\nКол-во приглашенных пользователей: {len(k)}" \
+                f"\nРеферальная ссылка:\n" \
+                f"<code>{link}</code>"
+        await call.bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id,text = text, reply_markup = builder.as_markup())
 
 #Menu
 @dp.message(Command('menu'))
@@ -209,6 +245,7 @@ async def menu(message: Message):
         builder = InlineKeyboardBuilder()
         builder.button(text = 'Расчитать', callback_data = 'search')
         builder.button(text = 'Способы получения', callback_data = 'delivery')
+        builder.button(text = 'Профиль', callback_data = 'profile')
         builder.button(text = 'Общая информация', callback_data = 'info')
         builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
         builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
@@ -227,6 +264,7 @@ async def menu2(call: types.CallbackQuery):
         builder = InlineKeyboardBuilder()
         builder.button(text = 'Расчитать', callback_data = 'search')
         builder.button(text = 'Способы получения', callback_data = 'delivery')
+        builder.button(text = 'Профиль', callback_data = 'profile')
         builder.button(text = 'Общая информация', callback_data = 'info')
         builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
         builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
