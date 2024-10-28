@@ -196,6 +196,7 @@ async def profile(message: Message):
         builder.button(text = 'Общая информация', callback_data = 'info')
         builder.button(text = 'Написать оператору', url = 'https://t.me/Misha_Thai_Baht')
         builder.button(text = 'Отзывы', url = 'https://t.me/misha_obmen_thb')
+        builder.adjust(1,1,1,1,1)
         text = f"Ваш ID <code>{message.chat.id}</code>"\
                 f"\nБаланс: {result['price']} бат" \
                 f"\nКол-во приглашенных пользователей: {len(k)}" \
