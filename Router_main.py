@@ -58,8 +58,8 @@ async def confirm(call: types.CallbackQuery):
             find = {'chatid': result['ref']}
             change = {'$set': {'price': bal}}
             users.update_one(find, change)
-            await call.bot.send_message(chat_id = id, text = f"На Ваш баланс зачислено: {abs(int(res['bat']) - round(res['bat'] * 1.002))} бат по реферальной системе")
-            await call.bot.send_message(chat_id = call.message.chat.id, text = f"На баланс @{result['username']} зачислено: {abs(int(res['bat']) - round(res['bat'] * 1.002))} бат по реферальной системе")
+            await call.bot.send_message(chat_id = result['ref'], text = f"На Ваш баланс зачислено: {abs(int(res['bat']) - round(res['bat'] * 1.002))} бат по реферальной системе")
+            await call.bot.send_message(chat_id = call.message.chat.id, text = f"На баланс @{ref['username']} зачислено: {abs(int(res['bat']) - round(res['bat'] * 1.002))} бат по реферальной системе")
         text = f"\nЗаказ №{orderid} выполнен" \
                 f"\n@{result['username']}" \
                 f"\n{result['FirstName']} {result['LastName']}" \
@@ -72,8 +72,8 @@ async def confirm(call: types.CallbackQuery):
             find = {'chatid': result['ref']}
             change = {'$set': {'price': bal}}
             users.update_one(find, change)
-            await call.bot.send_message(chat_id = id, text = f"На Ваш баланс зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
-            await call.bot.send_message(chat_id = call.message.chat.id, text = f"На баланс @{result['username']} зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
+            await call.bot.send_message(chat_id = result['ref'], text = f"На Ваш баланс зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
+            await call.bot.send_message(chat_id = call.message.chat.id, text = f"На баланс @{ref['username']} зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
         text = f"\nЗаказ №{orderid} выполнен" \
                 f"\n@{result['username']}" \
                 f"\n{result['FirstName']} {result['LastName']}" \
@@ -86,8 +86,8 @@ async def confirm(call: types.CallbackQuery):
             find = {'chatid': result['ref']}
             change = {'$set': {'price': bal}}
             users.update_one(find, change)
-            await call.bot.send_message(chat_id = id, text = f"На Ваш баланс зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
-            await call.bot.send_message(chat_id = call.message.chat.id, text = f"На баланс @{result['username']} зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
+            await call.bot.send_message(chat_id = result['ref'], text = f"На Ваш баланс зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
+            await call.bot.send_message(chat_id = call.message.chat.id, text = f"На баланс @{ref['username']} зачислено: {abs(int(res['bat']) - round(bat * 1.002))} бат по реферальной системе")
         text = f"\nЗаказ №{orderid} выполнен" \
                 f"\n@{result['username']}" \
                 f"\n{result['FirstName']} {result['LastName']}" \
