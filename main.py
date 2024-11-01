@@ -118,12 +118,17 @@ async def start(message: types.Message, state: FSMContext):
                 builder.adjust(1,1,1,1,1)
                 await message.bot.send_message(chat_id = message.chat.id, text = text, reply_markup = builder.as_markup(one_time_keyboard=True,resize_keyboard=True), parse_mode="HTML")
     elif k.startswith('ref'):
-        id = int(k.replace('ref', ''))
+        g = k.replace('ref', '')
+        id = int(g.split('I')[0])
+        uid = int( g.split('I')[1])
         result = users.find_one({'chatid': message.chat.id})
         res = users.find_one({'chatid': id})
-        if message.chat.id == id:
+        url = urls.find_one({'uid': uid})
+        if url == None:
+            await message.answer('Реферальная ссылка не найдена либо недоступна.')
+        elif message.chat.id == url['id']:
             await message.answer('Вы не можете регистирироваться по своей реферальной ссылке')
-        else:
+        elif message.chat.id != url['id'] and url != None:
             if result == None:
                 useradd = {
                     'username': message.from_user.username,
@@ -137,6 +142,7 @@ async def start(message: types.Message, state: FSMContext):
                     'bat_order':0,
                     'usdt_order': 0,
                     'ref': id,
+                    'uid': uid,
                     'latitude': 0,
                     'longitude': 0,
                     }
@@ -163,7 +169,7 @@ async def start(message: types.Message, state: FSMContext):
                     await message.bot.send_message(chat_id = message.chat.id, text = 'К сожалению Ваш аккаунт заблокирован', reply_markup = builder.as_markup())
                 else:
                     find = {'chatid': message.chat.id}
-                    change = {'$set': {'ref': id}}
+                    change = {'$set': {'ref': id, 'uid': uid}}
                     users.update_one(find, change)
                     builder = InlineKeyboardBuilder()
                     builder.button(text = 'Расчитать', callback_data = 'search')
@@ -199,9 +205,9 @@ async def profile(message: Message):
         builder.adjust(1,1,1,1,1)
         text = f"Ваш ID <code>{message.chat.id}</code>"\
                 f"\nБаланс: {result['price']} бат" \
-                f"\nКол-во приглашенных пользователей: {len(k)}" \
-                f"\nРеферальная ссылка:\n" \
-                f"<code>{link}</code>"
+                f"\nКол-во приглашенных пользователей: {len(k)}"
+                #f"\nРеферальная ссылка:\n" \
+                #f"<code>{link}</code>"
         await message.bot.send_message(chat_id = message.chat.id, text = text, reply_markup = builder.as_markup())
 
 
@@ -228,9 +234,9 @@ async def but_profile(call: types.CallbackQuery):
         builder.adjust(1,1,1,1,1,1)
         text = f"Ваш ID <code>{call.message.chat.id}</code>"\
                 f"\nБаланс: {result['price']} бат" \
-                f"\nКол-во приглашенных пользователей: {len(k)}" \
-                f"\nРеферальная ссылка:\n" \
-                f"<code>{link}</code>"
+                f"\nКол-во приглашенных пользователей: {len(k)}"
+                #f"\nРеферальная ссылка:\n" \
+                #f"<code>{link}</code>"
         await call.bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id,text = text, reply_markup = builder.as_markup())
 
 #Menu
