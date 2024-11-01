@@ -46,6 +46,10 @@ class change(StatesGroup):
     nak_10 = State()
     nak_200 = State()
 
+class create_url(StatesGroup):
+    id = State()
+    percent = State()
+
 #Панель админа
 @router_admin.message(Command('adm'))
 async def men_adm(message: types.Message, state: FSMContext):
@@ -64,7 +68,8 @@ async def men_adm(message: types.Message, state: FSMContext):
     builder.button(text = 'Наркутка от 200к', callback_data = 'nak_200')
     builder.button(text = 'Статистика', callback_data = 'static')
     builder.button(text = 'Информация по значениям', callback_data = 'information_for_db')
-    builder.adjust(3,1,1,1,1)
+    builder.button(text='Создание реферальной ссылки', callback_data='create_ref_url')
+    builder.adjust(3, 1, 1, 1, 1, 1)
     #   builder.button(text = 'Бан', callback_data = 'bann')
     text = "<b>                       Панель Администратора              </b>" \
             "\n<b>Здесь можно изменить значения в Базе данных</b>" \
@@ -95,7 +100,8 @@ async def men_adm(call: types.CallbackQuery, state: FSMContext):
     builder.button(text = 'Наркутка от 200к', callback_data = 'nak_200')
     builder.button(text = 'Статистика', callback_data = 'static')
     builder.button(text = 'Информация по значениям', callback_data = 'information_for_db')
-    builder.adjust(3,1,1,1,1)
+    builder.button(text = 'Создание реферальной ссылки', callback_data = 'create_ref_url')
+    builder.adjust(3,1,1,1,1,1)
     text = "<b>                       Панель Администратора              </b>" \
             "\n<b>Здесь можно изменить значения в Базе данных</b>" \
             "\nКнопка <b>Накртука</b> изменяет процент накрутки" \
@@ -108,6 +114,57 @@ async def men_adm(call: types.CallbackQuery, state: FSMContext):
     if user['adm'] == 1:
         await call.bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = text, reply_markup = builder.as_markup(), parse_mode= 'HTML')
     await call.bot.answer_callback_query(call.id)
+
+@router_admin.callback_query(F.data == 'create_ref_url')
+async def url_ref_start(call: types.CallbackQuery, state: FSMContext):
+    builder = InlineKeyboardBuilder()
+    builder.button(text = 'Отмена', callback_data = 'adm')
+    await call.bot.edit_message_text(chat_id = call.message.chat.id,message_id = call.message.message_id, text = 'Введите id пользователя для создания реферальной ссылки.', reply_markup = builder.as_markup())
+    await state.set_state(create_url.id)
+
+@router_admin.message(create_url.id)
+async def url_ref_id(message: Message, state: FSMContext):
+    try:
+        id = int(message.text)
+        await state.update_data(id = id)
+        await message.bot.send_message(chat_id = message.chat.id, text = 'Введите процент отчислений. Где 1 = 100%, а 0.001 = 0.1 процента')
+        await state.set_state(create_url.percent)
+    except:
+        await message.answer('Значение должно быть числом')
+
+@router_admin.message(create_url.percent)
+async def url_ref_percent(message: Message, state: FSMContext):
+    try:
+        percent = float(message.text)
+        await state.update_data(percent = percent)
+        builder = InlineKeyboardBuilder()
+        builder.button(text = 'Подтвердить', callback_data = 'add_ref_url')
+        builder.button(text = 'Панель админа', callback_data = 'adm')
+        await message.bot.send_message(chat_id = message.chat.id, text = 'Подтвердите создание ссылки для пользователя.', reply_markup = builder.as_markup())
+    except:
+        await message.answer('Значение должно быть числом')
+
+@router_admin.callback_query(F.data == 'add_ref_url')
+async def url_ref_finish(call: types.CallbackQuery, state: FSMContext):
+    data = await state.get_data()
+    print(data)
+    count = 0
+    for i in urls.find():
+        count += 1
+    data['uid'] = count
+    urls.insert_one(data)
+    bot_username = await call.bot.get_me()
+    bot_username = bot_username.username
+    link = link = f"http://t.me/{bot_username}?start=ref{data['id']}I{data['uid']}"
+    text = f"Реферальная ссылка: {link}" \
+            f"\nПроцент {data['percent']}"
+    await call.bot.send_message(chat_id = call.message.chat.id, text = text)
+    await state.clear()
+    await call.bot.answer_callback_query(call.id)
+
+
+
+
 
 
 @router_admin.callback_query(F.data == 'static')
