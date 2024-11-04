@@ -41,15 +41,6 @@ from Router_admin import router_admin
 from mongo import *
 from text import *
 #Подключние к датабазе
-#217.12.38.37
-#client = pymongo.MongoClient("mongodb://AdminMongo:Grilool1234@localhost:27017/?authMechanism=SCRAM-SHA-1")
-#server - root/ky7!Kmjk
-#<=== Токен взятый с @BotFather
-#TOKEN = "7178310446:AAH_wRJ0HA_-W79rl7EhO_ofJ0tHyeEuZ0o" #- Тестовая версия
-#TOKEN = '7730333589:AAHJRyyRTzVnETA-QIc9hq4UFEM9oa89wc8' #- Версия для клиента
-#TOKEN = "7929101245:AAH3tGuzbttTR_zTFbjdV9mqPmXF-fsudN8" # Misha
-#TOKEN = '7760332515:AAHQF5y2GISNU34TMowVr6rGdB8Ful9NT3c' #Vladimir
-TOKEN = '8089653515:AAGUWSTpB_ylGxTVDqipGlltLizio69v1IM' # Тестовая версия с реф системой
 dp = Dispatcher()
 
 #Логи
